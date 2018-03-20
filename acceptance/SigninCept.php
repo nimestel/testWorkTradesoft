@@ -1,12 +1,14 @@
 <?php
 $I = new AcceptanceTester($scenario);
-$I->am('user'); // actor's role
-$I->wantTo('login to website'); // feature to test
-$I->lookForwardTo('access website features for logged-in users'); // result to achieve
+$I->am('user'); // роль исполнителя
+$I->wantTo('login to website'); // что проверяется
+$I->lookForwardTo('access website features for logged-in users'); // ожидаемый результат
 $I->amOnPage('/');
-$I->click('#myModal a');
+//вызов формы входа
+$I->click('#myModal a'); 
+//ввод логина и пароля
 //$I->submitForm('loginform', ['userlogin' => 'testme', 'userpassword' => '123']);
 $I->fillField('userlogin','testme');
 $I->fillField('userpassword','123');
-$I->click(['class' => 'btn--auth-submit']);
-$I->canSee('Здравствуйте, ');
+$I->click('Войти', ['class' => 'btn--auth-submit']); // нажать на кнопку Войти
+$I->See('Здравствуйте, ');
