@@ -21,4 +21,5 @@ class FirstCest
         $I->amOnPage('/');
         $I->see('Демо-версия');  
     }
+
 }
