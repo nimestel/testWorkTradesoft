@@ -1,0 +1,4 @@
+I WANT TO SIGN IN UPPER CASE LOGIN
+
+I see 'Здравствуйте"," '," $loginPage::$helloform"
+

@@ -1,0 +1,6 @@
+I WANT TO SIGN IN WITH SPACE AT BEGIN AND END LOGIN
+
+I click "$loginPage::$submitButton" 
+I see element "$loginPage::$helloform" 
+I see 'Здравствуйте'
+

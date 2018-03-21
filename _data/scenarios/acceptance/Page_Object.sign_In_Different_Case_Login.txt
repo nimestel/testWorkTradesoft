@@ -1,0 +1,4 @@
+I WANT TO SIGN IN DIFFERENT CASE LOGIN
+
+I see 'Здравствуйте"," '," $loginPage::$helloform"
+

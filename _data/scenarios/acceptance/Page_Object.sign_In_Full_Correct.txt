@@ -1,0 +1,4 @@
+I WANT TO SIGN IN FULL CORRECT
+
+I see 'Здравствуйте"," '," $loginPage::$helloform"
+
