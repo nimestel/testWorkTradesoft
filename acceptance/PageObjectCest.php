@@ -1,6 +1,5 @@
 <?php
 
-
 class UserCest
 {
 
@@ -60,6 +59,34 @@ class UserCest
         $I->see('Здравствуйте, ', $loginPage::$helloform);
     } 
 
+    function signInDifferentCaseLogin(AcceptanceTester $I, \Page\Login $loginPage)
+    {
+        $loginPage->login('tEsTmE', '123');
+        $I->see('Здравствуйте, ', $loginPage::$helloform);
+    } 
+
+    function signInDifferentCasePassword(AcceptanceTester $I, \Page\Login $loginPage)
+    {
+        $loginPage->login(' justlogin123', 'itSpass123');
+        $I->see('Здравствуйте, ', $loginPage::$helloform);
+    } 
+    
+    function signInHiddenPassword(AcceptanceTester $I, \Page\Login $loginPage)
+    {
+        $loginPage->fillFieldsLoginPassword('testme', '123');
+        $pass = $I->grabTextFrom("//input[@id = 'userpassword']");
+        echo($pass);
+        //значение пароля не скопировалось
+        $I->dontSee('123');
+    }   
+
+    function signInEncryptedPassword(AcceptanceTester $I, \Page\Login $loginPage)
+    {
+        $loginPage->fillFieldsLoginPassword('testme', '123');
+        // однозначное указание элемента поля ввода пароля с типом "password"
+        $I->grabTextFrom("//input[@id='userpassword'][contains(@type, 'password')]"); 
+    }  
+
     function signInOverLimitSymbolsInLoginPassword(AcceptanceTester $I, \Page\Login $loginPage)
     {
         $loginPage->login('123456789-123456789-123456789-123456789-123456789-123456789-12345', '123');
@@ -70,26 +97,39 @@ class UserCest
         $I->dontSee('Здравствуйте, ', $loginPage::$helloform);
         $I->see($loginPage::$loginError);
     }
-
-    function signInTimeout(AcceptanceTester $I, \Page\Login $loginPage)
+	
+    function signInSpaceAtBeginAndEndLoginPassword(AcceptanceTester $I, \Page\Login $loginPage)
     {
-        for ($j = 1; $j <= 100; $j++) {
-        $loginPage->login('testme', '123');
+        $loginPage->login('testme', '  123 ');
         $I->see('Здравствуйте, ', $loginPage::$helloform);
-        $loginPage->logout();
-        echo ($j);
-        }
-    }   
-		    
-    function signInHiddenPassword(AcceptanceTester $I, \Page\Login $loginPage)
+
+        $loginPage->login('testme     ', '123');
+        $I->see('Здравствуйте, ', $loginPage::$helloform);    
+    }  
+
+    function signInSpaceInMiddleLoginPassword(AcceptanceTester $I, \Page\Login $loginPage)
     {
-        $loginPage->fillFieldsLoginPassword('testme', '123');
-        $pass = $I->grabTextFrom("//input[@id = 'userpassword']");
-        echo($pass);
-        $I->dontSee('123');
+        $loginPage->login('test me', '123');
+        $I->dontSee('Здравствуйте, ', $loginPage::$helloform);
+        $I->see($loginPage::$loginError); 
+
+        $loginPage->login('testme', '1 23');
+        $I->dontSee('Здравствуйте, ', $loginPage::$helloform);
+        $I->see($loginPage::$loginError); 
+    }  
+    
+    function signInMultipleFailedLoginAttempts(AcceptanceTester $I, \Page\Login $loginPage)
+    {
+        $I->amOnPage($loginPage::$URL);
+        $I->click($loginPage::$loginform);
+
+        for ($j = 1; $j <= 11; $j++)
+        {
+            $loginPage->tryLogIn('123', '123'); 
+        }
+       
+        $I->see($loginPage::$manyAttemptsLoginError);  
     }   
-
-
 
 }
 

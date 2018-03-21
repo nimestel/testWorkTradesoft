@@ -7,12 +7,14 @@ class Login
    // Эти свойства определяют отображение пользовательского интерфейса для страницы регистрации
     public static $userloginField = 'userlogin';
     public static $userpasswordField = 'userpassword';
-    public static $loginform = "#myModal a";
+    public static $loginform = "//a[@class='btn'][contains(@data-target, '#myModal')]";
     public static $submitButton = "//input[@type='submit'][contains(@value, 'Войти')]";
     public static $helloform = ".auth-user__hello";
     public static $closeback = "//button[@type='button'][contains(@class, 'close ico-auth-close')]"; //gotohell
     public static $logout = '//ul[@class="user-menu"]/li/a[@href="/?logout"]';
     public static $loginError = 'Ошибка: указанные Вами логин и пароль в базе данных не найдены.';
+    public static $manyAttemptsLoginError = "Вы превысили допустимое количество запросов";
+   
     protected $user;
 
     public function __construct(\AcceptanceTester $I) 
@@ -41,6 +43,16 @@ class Login
         $I->fillField(self::$userloginField, $userlogin);
         $I->fillField(self::$userpasswordField,$userpassword);
     } 
+
+    public function tryLogIn($userlogin, $userpassword) 
+    {
+        $I = $this->user; 
+        $I->fillField(self::$userloginField, $userlogin);
+        $I->fillField(self::$userpasswordField,$userpassword);
+        $I->click(self::$submitButton);
+    } 
+
+ 
 
     public function logout() 
     {
