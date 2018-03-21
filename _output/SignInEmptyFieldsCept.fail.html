@@ -28,32 +28,27 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
-<link rel="stylesheet" type="text/css" href="/_syscss/bootstrap.min.css?8110" />
-<link rel="stylesheet" type="text/css" href="/_syscss/style.min.css?8110" />
-<link rel="stylesheet" type="text/css" href="/_syslib/tinybox/tinybox.css?8110" />
-<link rel="stylesheet" type="text/css" href="/_syslib/owlcarousel/owl.carousel.min.css?8110" />
-<link rel="stylesheet" type="text/css" href="/_css/client_styles.css?8110" />
-<script type="text/javascript" src="/_syslib/jquery-1.11.min.js?8110"></script>
-<script type="text/javascript" src="/_syslib/lib.common.js?8110"></script>
-<script type="text/javascript" src="/_client-side/cf.js?8110"></script>
-<script type="text/javascript" src="/_syslib/bootstrap.min.js?8110"></script>
-<script type="text/javascript" src="/_client-side/fixed-search-thead.js?8110"></script>
-<script type="text/javascript" src="/_client-side/script.js?8110"></script>
-<script type="text/javascript" src="/_syslib/search/search.js?8110"></script>
-<script type="text/javascript" src="/_syslib/modules/module.basket.js?8110"></script>
-<script type="text/javascript" src="/_syslib/modules/module.small-basket.js?8110"></script>
-<script type="text/javascript" src="/_syslib/form/DateTimeBox.js?8110"></script>
-<script type="text/javascript" src="/_syslib/tinybox/tinybox.js?8110"></script>
-<script type="text/javascript" src="/_syslib/owlcarousel/owl.carousel.js?8110"></script>
-<script type="text/javascript" src="/_syslib/form/paginator-resizer.js?8110"></script>
-<script type="text/javascript" src="/_syslib/form/Form.js?8110"></script>
-<script type="text/javascript" src="/_syslib/form/DropDownList.js?8110"></script>
-
-				<script type="text/javascript">
-					setCookie('userlogin', 'testme', 1209600000);
-					setCookie('userpassword', '202cb962ac59075b964b07152d234b70', 1209600000);
-					setCookie('userdomain', '', 1209600000);
-				</script>
+<link rel="stylesheet" type="text/css" href="/_syscss/bootstrap.min.css?2598" />
+<link rel="stylesheet" type="text/css" href="/_syscss/style.min.css?2598" />
+<link rel="stylesheet" type="text/css" href="/_syslib/tinybox/tinybox.css?2598" />
+<link rel="stylesheet" type="text/css" href="/_syslib/owlcarousel/owl.carousel.min.css?2598" />
+<link rel="stylesheet" type="text/css" href="/_css/client_styles.css?2598" />
+<script type="text/javascript" src="/_syslib/jquery-1.11.min.js?2598"></script>
+<script type="text/javascript" src="/_syslib/lib.common.js?2598"></script>
+<script type="text/javascript" src="/_client-side/cf.js?2598"></script>
+<script type="text/javascript" src="/_syslib/bootstrap.min.js?2598"></script>
+<script type="text/javascript" src="/_client-side/fixed-search-thead.js?2598"></script>
+<script type="text/javascript" src="/_client-side/script.js?2598"></script>
+<script type="text/javascript" src="/_syslib/search/search.js?2598"></script>
+<script type="text/javascript" src="/_syslib/modules/module.basket.js?2598"></script>
+<script type="text/javascript" src="/_syslib/modules/module.small-basket.js?2598"></script>
+<script type="text/javascript" src="/_syslib/form/DateTimeBox.js?2598"></script>
+<script type="text/javascript" src="/_syslib/tinybox/tinybox.js?2598"></script>
+<script type="text/javascript" src="/_syslib/owlcarousel/owl.carousel.js?2598"></script>
+<script type="text/javascript" src="/_syslib/form/paginator-resizer.js?2598"></script>
+<script type="text/javascript" src="/_syslib/form/Form.js?2598"></script>
+<script type="text/javascript" src="/_syslib/form/DropDownList.js?2598"></script>
+<script type="text/javascript" src="/_syslib/md5.js?2598"></script>
 
 <script>
 	var jsTr = {'Ещё': 'Еще', 'Добавление в корзину...': 'Добавление в корзину...', 'Заказано': 'Заказано'};
@@ -88,11 +83,35 @@
 					<div class="header__contact-wrapper">
 						<div class="contact-details contact-details_top">
 	<div class="contact-details__item">
-	<svg class="contact-details__icon">
-		<use xlink:href="/_sysimg/svg/contacts-sprite.svg#address">
-	</svg>
-	<div class="contact-details__value" data-contact-prop="address">Киров, ул. Профсоюзная, 1</div>
-</div><div class="contact-details__item">
+	<div class="select-stock-point" id="select-stock-point">
+		<svg class="select-stock-point__icon">
+			<use xlink:href="/_sysimg/svg/contacts-sprite.svg#address">
+		</svg>
+		<button class="select-stock-point__show" type="button">
+			<div class="contact-details__value" data-contact-prop="address">Киров, ул. Профсоюзная, 1</div>
+			<svg class="select-stock-point__show-icon">
+				<use xlink:href="/_sysimg/svg/ui.svg#arrow">
+			</svg>
+		</button>
+		<div id="select-stock-point-list" class="select-stock-point__drop" v-cloak>
+			<div class="select-stock-point__header">Выберите торговую точку:</div>
+			<div class="select-stock-point__container">
+				<div class="select-stock-point__list" >
+					<div class="select-stock-point__item" v-for="item in list">
+						<input class="select-stock-point__radio" v-on:click="selectStock(item.id)" type="radio" value="item.id" v-bind:checked="item.active" :id="item.id" name="select-stock">
+						<label class="select-stock-point__label" :for="item.id">
+							<span class="select-stock-point__address">{{item.address}}</span>
+							<div class="select-stock-point__value" v-for="value in item.data">{{value}}</div>
+							<button v-if="showMap && item.coordinates" v-on:click="showStockOnMap(item.id)" class="select-stock-point__show-map" type="button">Показать на карте</button>
+						</label>
+					</div>
+				</div>
+				<div class="select-stock-point__map"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="contact-details__item">
 	<svg class="contact-details__icon">
 		<use xlink:href="/_sysimg/svg/contacts-sprite.svg#phone">
 	</svg>
@@ -121,61 +140,8 @@
 		</div>
 	</div>
 						<div class="header__user-info hidden-sx hidden-sm">
-								<div class="auth-user">
-		<span class="auth-user__hello">Здравствуйте, <a class="auth-user__login-name">Клиент</a></span>
-		<!--Begin Меню пользователя-->
-		
-<ul class="user-menu">
-												<li class="user-menu__item" data-separator="yes">
-				<a class="user-menu__link" href="/shop/personal/info.html" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#account"></use></svg>					Мой профиль				</a>
-			</li>
-											<li class="user-menu__item" data-separator="">
-				<a class="user-menu__link" href="/shop/documents.html" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#doc"></use></svg>					Документы				</a>
-			</li>
-											<li class="user-menu__item" data-separator="">
-				<a class="user-menu__link" href="/shop/balance.html" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#wallet"></use></svg>					Состояние счета				</a>
-			</li>
-											<li class="user-menu__item" data-separator="yes">
-				<a class="user-menu__link" href="/shop/vin_requests.html" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#vin"></use></svg>					Запросы по VIN				</a>
-			</li>
-											<li class="user-menu__item" data-separator="">
-				<a class="user-menu__link" href="/shop/myorders.html" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#shop"></use></svg>					Мои заказы				</a>
-			</li>
-											<li class="user-menu__item" data-separator="">
-				<a class="user-menu__link" href="/shop/personal/delivery.html" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#pin"></use></svg>					Мои адреса				</a>
-			</li>
-											<li class="user-menu__item" data-separator="">
-				<a class="user-menu__link" href="/shop/personal/payers.html" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#receipt"></use></svg>					Мои реквизиты				</a>
-			</li>
-											<li class="user-menu__item" data-separator="">
-				<a class="user-menu__link" href="/multisearch/"  rel="tiny" data-width="900">
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#multisearch"></use></svg>					Групповая проценка				</a>
-			</li>
-											<li class="user-menu__item" data-separator="">
-				<a class="user-menu__link" href="/multisearch-history/" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#multisearch-history"></use></svg>					История проценок				</a>
-			</li>
-											<li class="user-menu__item" data-separator="">
-				<a class="user-menu__link" href="/shop/personal/cars.html" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#auto"></use></svg>					Мои автомобили				</a>
-			</li>
-				<li class="user-menu__item user-menu__item--last">
-		<a class="user-menu__link" href="/?logout">
-			<svg class="user-menu__svg-icon">
-				<use xlink:href="/_sysimg/svg/usermi-sprite.svg#power"></use>
-			</svg>Выход		</a>
-	</li>
-</ul>
-
-		<!--End Меню пользователя-->
-	</div>
+								<a class="btn" data-toggle="modal" data-target="#myModal">Войти</a>
+	<a class="btn btn_view_common header__reg-button" href="/registration.html">Регистрация</a>
 						</div>
 					</div>
 				</div>
@@ -201,61 +167,8 @@
 						</button>
 						<!--End Кнопка для показа меню-->
 						<div class="header-nav__user-info visible-sm">
-								<div class="auth-user">
-		<span class="auth-user__hello">Здравствуйте, <a class="auth-user__login-name">Клиент</a></span>
-		<!--Begin Меню пользователя-->
-		
-<ul class="user-menu">
-												<li class="user-menu__item" data-separator="yes">
-				<a class="user-menu__link" href="/shop/personal/info.html" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#account"></use></svg>					Мой профиль				</a>
-			</li>
-											<li class="user-menu__item" data-separator="">
-				<a class="user-menu__link" href="/shop/documents.html" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#doc"></use></svg>					Документы				</a>
-			</li>
-											<li class="user-menu__item" data-separator="">
-				<a class="user-menu__link" href="/shop/balance.html" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#wallet"></use></svg>					Состояние счета				</a>
-			</li>
-											<li class="user-menu__item" data-separator="yes">
-				<a class="user-menu__link" href="/shop/vin_requests.html" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#vin"></use></svg>					Запросы по VIN				</a>
-			</li>
-											<li class="user-menu__item" data-separator="">
-				<a class="user-menu__link" href="/shop/myorders.html" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#shop"></use></svg>					Мои заказы				</a>
-			</li>
-											<li class="user-menu__item" data-separator="">
-				<a class="user-menu__link" href="/shop/personal/delivery.html" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#pin"></use></svg>					Мои адреса				</a>
-			</li>
-											<li class="user-menu__item" data-separator="">
-				<a class="user-menu__link" href="/shop/personal/payers.html" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#receipt"></use></svg>					Мои реквизиты				</a>
-			</li>
-											<li class="user-menu__item" data-separator="">
-				<a class="user-menu__link" href="/multisearch/"  rel="tiny" data-width="900">
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#multisearch"></use></svg>					Групповая проценка				</a>
-			</li>
-											<li class="user-menu__item" data-separator="">
-				<a class="user-menu__link" href="/multisearch-history/" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#multisearch-history"></use></svg>					История проценок				</a>
-			</li>
-											<li class="user-menu__item" data-separator="">
-				<a class="user-menu__link" href="/shop/personal/cars.html" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#auto"></use></svg>					Мои автомобили				</a>
-			</li>
-				<li class="user-menu__item user-menu__item--last">
-		<a class="user-menu__link" href="/?logout">
-			<svg class="user-menu__svg-icon">
-				<use xlink:href="/_sysimg/svg/usermi-sprite.svg#power"></use>
-			</svg>Выход		</a>
-	</li>
-</ul>
-
-		<!--End Меню пользователя-->
-	</div>
+								<a class="btn" data-toggle="modal" data-target="#myModal">Войти</a>
+	<a class="btn btn_view_common header__reg-button" href="/registration.html">Регистрация</a>
 						</div>
 						<div class="header-nav__menu hidden-xs">
 							<!--Begin Основное меню-->
@@ -432,34 +345,34 @@
 			<div class="user-search-history__list-container">
 				<ul id="search-history-list" class="user-search-history__list">
 											<li class="user-search-history__item">
-							<a href="/search.html?article=6400D101WB&sort___search_results_by=final_price&smode=A" class="user-search-history__link">6400D101WB</a>
+							<a href="/search.html?article=8N0698471&sort___search_results_by=final_price&smode=A" class="user-search-history__link">8N0698471</a>
 						</li>
 											<li class="user-search-history__item">
-							<a href="/search.html?article=30663777&sort___search_results_by=final_price&smode=A" class="user-search-history__link">30663777</a>
+							<a href="/search.html?article=4412522AB&sort___search_results_by=final_price&smode=A" class="user-search-history__link">4412522AB</a>
 						</li>
 											<li class="user-search-history__item">
-							<a href="/search.html?article=1780126010&sort___search_results_by=final_price&smode=A" class="user-search-history__link">1780126010</a>
+							<a href="/search.html?article=0280122001&sort___search_results_by=final_price&smode=A" class="user-search-history__link">0280122001</a>
 						</li>
 											<li class="user-search-history__item">
-							<a href="/search.html?article=0115100221&sort___search_results_by=final_price&smode=A" class="user-search-history__link">0115100221</a>
+							<a href="/search.html?article=1T0413031GJ&sort___search_results_by=final_price&smode=A" class="user-search-history__link">1T0413031GJ</a>
 						</li>
 											<li class="user-search-history__item">
-							<a href="/search.html?article=1110C900&sort___search_results_by=final_price&smode=A" class="user-search-history__link">1110C900</a>
+							<a href="/search.html?article=N90932603&sort___search_results_by=final_price&smode=A" class="user-search-history__link">N90932603</a>
 						</li>
 											<li class="user-search-history__item">
-							<a href="/search.html?article=4865560030&sort___search_results_by=final_price&smode=A" class="user-search-history__link">4865560030</a>
+							<a href="/search.html?article=MD180051&sort___search_results_by=final_price&smode=A" class="user-search-history__link">MD180051</a>
 						</li>
 											<li class="user-search-history__item">
-							<a href="/search.html?article=5216116010&sort___search_results_by=final_price&smode=A" class="user-search-history__link">5216116010</a>
+							<a href="/search.html?article=N90955703&sort___search_results_by=final_price&smode=A" class="user-search-history__link">N90955703</a>
 						</li>
 											<li class="user-search-history__item">
-							<a href="/search.html?article=051218&sort___search_results_by=final_price&smode=A" class="user-search-history__link">051218</a>
+							<a href="/search.html?article=H2100JD0MC&sort___search_results_by=final_price&smode=A" class="user-search-history__link">H2100JD0MC</a>
 						</li>
 											<li class="user-search-history__item">
-							<a href="/search.html?article=MR155697&sort___search_results_by=final_price&smode=A" class="user-search-history__link">MR155697</a>
+							<a href="/search.html?article=206500002R&sort___search_results_by=final_price&smode=A" class="user-search-history__link">206500002R</a>
 						</li>
 											<li class="user-search-history__item">
-							<a href="/search.html?article=0501J4&sort___search_results_by=final_price&smode=A" class="user-search-history__link">0501J4</a>
+							<a href="/search.html?article=5105829AA&sort___search_results_by=final_price&smode=A" class="user-search-history__link">5105829AA</a>
 						</li>
 									</ul>
 			</div>
@@ -487,11 +400,10 @@
 </div>	</div>
 </form>
 						<div class="header-catalog__right">
-															<a class="orders-link hidden-xs hidden-sm header-catalog__orders-link" href="/shop/myorders.html">Мои заказы</a>
 																					<a class="order-amount header-catalog__basket" href="/shop/basket.html" data-field="module-basket">
-								<span class="order-amount__count" data-field="module-basket-count">2</span>
+								<span class="order-amount__count" data-field="module-basket-count">0</span>
 								<span class="hidden-xs">
-									<span data-field="module-basket-sum">1 855.00</span>
+									<span data-field="module-basket-sum">0.00</span>
 									<span class="order-amount__unit">&#8381;</span>
 								</span>
 							</a>
@@ -1960,9 +1872,59 @@
 </div>
 
 <div class="container-push">
-	<div id="CustomerBasketId">
+	<script type='text/javascript'>
+					if(!window._forms) window._forms = [];
+					window._forms["login"] = new WarForm("login", {
+							customValidate: function(arg){
+				jqWar.get(
+					'/?fn=auth_hash&hash='+md5(arg.userpassword.value), 
+					function(responseText){
+						arg.loginform.value = 'safe';
+						arg.userpassword.value = responseText;
+						arg.submit();
+					}
+				);
+				return false;
+			},
+							messages: {"required":"\u042d\u0442\u043e \u043f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e \u043a \u0437\u0430\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044e"}
+							,humanCheckHref: "/_phplib/check/img.php"
+					});
+					document.addEventListener("DOMContentLoaded", function() { 
+						window._forms["login"].init();
+					});
+				</script><div id="CustomerBasketId">
 
-	<div class="auth-block">
+	<div class="auth-block auth-block--login-error">
+	
+		
+		<!-- Modal -->
+		<div class="row">
+		<div class="modal fade in" id="myModal" tabindex="-1" role="dialog" aria-labelledby="loginFormTitle">
+			<div class="modal-dialog auth-modal-dialog" role="document">
+				<div class="auth-modal-content modal-content">
+					<div class="auth-modal-header">
+						<button type="button" class="close modal-dialog__close" data-dismiss="modal" aria-label="Close"></button>
+						<div class="auth-title" id="loginFormTitle">Авторизация</div>
+					</div>
+					<div class="auth-modal-body modal-body">
+						<form id="login" name="login" action="/" method="POST" onsubmit="">
+							<input class="clearAll TextBox" id="loginform" type="hidden" name="loginform" value="1" />							<input class="clearAll TextBox" id="remember" type="hidden" name="remember" value="1" />							<div class="auth-input">
+								<label class="auth-label">Логин</label>
+								<input class="clearAll TextBox required" id="userlogin" type="text" name="userlogin" value="" placeholder="логин" />							</div>
+							<div class="auth-input">
+								<label class="auth-label">Пароль</label>
+								<input class="clearAll TextBox required" id="userpassword" type="password" name="userpassword" value="" placeholder="пароль" />							</div>
+															<div class="login-error-text">Ошибка: указанные Вами логин и пароль в базе данных не найдены.</div>
+																						<input class="btn btn--auth-submit" type="submit" value="Войти">
+														<a class="auth-link" href="/recover_password.html">Забыли пароль?</a>
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		</div>
+
 		</div>
 
 </div></div>
@@ -1974,7 +1936,10 @@
 	<div class="mobile-nav__item">
 		<div class="mobile-nav__header">
 			<div class="mobile-nav__title">Меню</div>
-							<a class="btn mobile-nav__btn-account">Личный кабинет</a>
+							<div class="mobile-nav__actions">
+					<a class="btn mobile-nav__btn">Войти</a>
+					<a class="btn btn_view_common mobile-nav__btn" href="/registration.html">Регистрация</a>
+				</div>
 					</div>
 		<ul class="mobile-menu">
 									<li class="mobile-menu__item mobile-menu__item--dropdown">
@@ -2080,58 +2045,51 @@
 	</div>
 	<div class="mobile-nav__item">
 
-					<div class="mobile-nav__header">
-				<div class="mobile-nav__title">Личный кабинет</div>
-			</div>
-			
-<ul class="user-menu">
-												<li class="user-menu__item">
-				<a class="user-menu__link" href="/shop/personal/info.html" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#account"></use></svg>					Мой профиль				</a>
-			</li>
-											<li class="user-menu__item">
-				<a class="user-menu__link" href="/shop/documents.html" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#doc"></use></svg>					Документы				</a>
-			</li>
-											<li class="user-menu__item">
-				<a class="user-menu__link" href="/shop/balance.html" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#wallet"></use></svg>					Состояние счета				</a>
-			</li>
-											<li class="user-menu__item">
-				<a class="user-menu__link" href="/shop/vin_requests.html" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#vin"></use></svg>					Запросы по VIN				</a>
-			</li>
-											<li class="user-menu__item">
-				<a class="user-menu__link" href="/shop/myorders.html" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#shop"></use></svg>					Мои заказы				</a>
-			</li>
-											<li class="user-menu__item">
-				<a class="user-menu__link" href="/shop/personal/delivery.html" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#pin"></use></svg>					Мои адреса				</a>
-			</li>
-											<li class="user-menu__item">
-				<a class="user-menu__link" href="/shop/personal/payers.html" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#receipt"></use></svg>					Мои реквизиты				</a>
-			</li>
-											<li class="user-menu__item">
-				<a class="user-menu__link" href="/multisearch/"  rel="tiny" data-width="900">
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#multisearch"></use></svg>					Групповая проценка				</a>
-			</li>
-											<li class="user-menu__item">
-				<a class="user-menu__link" href="/multisearch-history/" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#multisearch-history"></use></svg>					История проценок				</a>
-			</li>
-											<li class="user-menu__item">
-				<a class="user-menu__link" href="/shop/personal/cars.html" >
-										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#auto"></use></svg>					Мои автомобили				</a>
-			</li>
-				<li class="user-menu__item user-menu__item--last">
-		<a class="user-menu__link" href="/?logout">
-			<svg class="user-menu__svg-icon">
-				<use xlink:href="/_sysimg/svg/usermi-sprite.svg#power"></use>
-			</svg>Выход		</a>
-	</li>
-</ul>
+		
+			<script type='text/javascript'>
+					if(!window._forms) window._forms = [];
+					window._forms["login"] = new WarForm("login", {
+							customValidate: function(arg){
+				jqWar.get(
+					'/?fn=auth_hash&hash='+md5(arg.userpassword.value), 
+					function(responseText){
+						arg.loginform.value = 'safe';
+						arg.userpassword.value = responseText;
+						arg.submit();
+					}
+				);
+				return false;
+			},
+							messages: {"required":"\u042d\u0442\u043e \u043f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e \u043a \u0437\u0430\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044e"}
+							,humanCheckHref: "/_phplib/check/img.php"
+					});
+					document.addEventListener("DOMContentLoaded", function() { 
+						window._forms["login"].init();
+					});
+				</script><div id="CustomerBasketId">
+
+	<div class="auth-block auth-block--login-error">
+	
+		
+			<div class="auth-title" id="myModalLabel">Авторизация</div>
+
+			<form id="login" name="login" action="/" method="POST" onsubmit="">
+				<input class="clearAll TextBox" id="loginform" type="hidden" name="loginform" value="1" />				<input class="clearAll TextBox" id="remember" type="hidden" name="remember" value="1" />				<div class="auth-input">
+					<label class="auth-label">Логин</label>
+					<input class="clearAll TextBox required" id="userlogin" type="text" name="userlogin" value="" placeholder="логин" />				</div>
+				<div class="auth-input">
+					<label class="auth-label">Пароль</label>
+					<input class="clearAll TextBox required" id="userpassword" type="password" name="userpassword" value="" placeholder="пароль" />				</div>
+									<div class="login-error-text">Ошибка: указанные Вами логин и пароль в базе данных не найдены.</div>
+
+													<input class="btn btn--auth-submit" type="submit" value="Войти"><br>
+								<a class="auth-link" href="/recover_password.html">Забыли пароль?</a>
+			</form>
+
+
+		</div>
+
+</div>
 				<a class="mobile-nav__btn-back">Назад</a>
 
 	</div>
@@ -2356,7 +2314,12 @@
 
 			})();
 
-		
+		 if(!window.isMobile){ jqWar('#myModal').modal('show');} 
+							jqWar('.navbar-push__inner').addClass('navbar-push__inner--show');
+							jqWar('.navbar-push').css('z-index','5');
+							jqWar('.shadow').fadeIn();
+							jqWar('.mobile-nav').removeClass('mobile-nav--back').addClass('mobile-nav--forward');
+						
 	});
 
 </script>

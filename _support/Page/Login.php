@@ -1,0 +1,37 @@
+<?php
+namespace Page;
+
+class Login
+{
+    public static $URL = 'https://xn----8sbbddoe5esabkbhs.xn--p1ai/';
+   // Эти свойства определяют отображение пользовательского интерфейса для страницы регистрации
+    public static $userloginField = 'userlogin';
+    public static $userpasswordField = 'userpassword';
+    public static $loginform = "#myModal a";
+    public static $submitButton = "['class' => 'btn--auth-submit']";
+    public static $helloform = ".auth-user__hello";
+
+    protected $user;
+
+    public function __construct(\AcceptanceTester $I) 
+    {
+        $this->user = $I;
+    }
+    public function login($userlogin, $userpassword) 
+    {
+        $I = $this->user;
+        $I->amOnPage(self::$URL);
+        $I->click(self::$loginform);
+        $I->fillField(self::$userloginField, $userlogin);
+        $I->fillField(self::$userpasswordField,$userpassword);
+        $I->click(self::$submitButton);        
+    }
+
+    public function logout() 
+    {
+        $I = $this->user;
+        $I->click("Выйти");
+    }
+
+
+}
