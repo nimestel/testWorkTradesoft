@@ -1,0 +1,261 @@
+==== Redirecting to Composer-installed version in vendor/codeception ====
+Codeception PHP Testing Framework v2.4.0
+Powered by PHPUnit 7.0.2 by Sebastian Bergmann and contributors.
+
+Acceptance Tests (16) ---------------------------------------------------------------------------------------------------------
+UserCest: Sign in full correct
+Signature: UserCest:signInFullCorrect
+Test: tests\acceptance\PageObjectCest.php:signInFullCorrect
+Scenario --
+ So that I access website features for logged-in users
+ Page\Login: login "testme","123"
+   I am on page "https://xn----8sbbddoe5esabkbhs.xn--p1ai/"
+   I click "//a[@class='btn'][contains(@data-target, '#myModal')]"
+   I fill field "userlogin","testme"
+   I fill field "userpassword","123"
+   I click "//input[@type='submit'][contains(@value, 'Войти')]"
+ I see "Здравствуйте, ",".auth-user__hello"
+ PASSED
+
+UserCest: Sign in empty fields
+Signature: UserCest:signInEmptyFields
+Test: tests\acceptance\PageObjectCest.php:signInEmptyFields
+Scenario --
+ So that I access website features for logged-in users
+ Page\Login: login "",""
+   I am on page "https://xn----8sbbddoe5esabkbhs.xn--p1ai/"
+   I click "//a[@class='btn'][contains(@data-target, '#myModal')]"
+   I fill field "userlogin",""
+   I fill field "userpassword",""
+   I click "//input[@type='submit'][contains(@value, 'Войти')]"
+ I don't see "Здравствуйте, ",".auth-user__hello"
+ PASSED
+
+UserCest: Sign in empty password
+Signature: UserCest:signInEmptyPassword
+Test: tests\acceptance\PageObjectCest.php:signInEmptyPassword
+Scenario --
+ So that I access website features for logged-in users
+ Page\Login: login "testme",""
+   I am on page "https://xn----8sbbddoe5esabkbhs.xn--p1ai/"
+   I click "//a[@class='btn'][contains(@data-target, '#myModal')]"
+   I fill field "userlogin","testme"
+   I fill field "userpassword",""
+   I click "//input[@type='submit'][contains(@value, 'Войти')]"
+ I don't see "Здравствуйте, ",".auth-user__hello"
+ PASSED
+
+UserCest: Sign in correct login bad password
+Signature: UserCest:signInCorrectLoginBadPassword
+Test: tests\acceptance\PageObjectCest.php:signInCorrectLoginBadPassword
+Scenario --
+ So that I access website features for logged-in users
+ Page\Login: login "testme","111"
+   I am on page "https://xn----8sbbddoe5esabkbhs.xn--p1ai/"
+   I click "//a[@class='btn'][contains(@data-target, '#myModal')]"
+   I fill field "userlogin","testme"
+   I fill field "userpassword","111"
+   I click "//input[@type='submit'][contains(@value, 'Войти')]"
+ I don't see "Здравствуйте, ",".auth-user__hello"
+ I see "Ошибка: указанные Вами логин и пароль в базе данных не найдены."
+ PASSED
+
+UserCest: Sign in bad login correct password
+Signature: UserCest:signInBadLoginCorrectPassword
+Test: tests\acceptance\PageObjectCest.php:signInBadLoginCorrectPassword
+Scenario --
+ So that I access website features for logged-in users
+ Page\Login: login "test","123"
+   I am on page "https://xn----8sbbddoe5esabkbhs.xn--p1ai/"
+   I click "//a[@class='btn'][contains(@data-target, '#myModal')]"
+   I fill field "userlogin","test"
+   I fill field "userpassword","123"
+   I click "//input[@type='submit'][contains(@value, 'Войти')]"
+ I don't see "Здравствуйте, ",".auth-user__hello"
+ I see "Ошибка: указанные Вами логин и пароль в базе данных не найдены."
+ PASSED
+
+UserCest: Sign in bad login bad password
+Signature: UserCest:signInBadLoginBadPassword
+Test: tests\acceptance\PageObjectCest.php:signInBadLoginBadPassword
+Scenario --
+ So that I access website features for logged-in users
+ Page\Login: login "test","111"
+   I am on page "https://xn----8sbbddoe5esabkbhs.xn--p1ai/"
+   I click "//a[@class='btn'][contains(@data-target, '#myModal')]"
+   I fill field "userlogin","test"
+   I fill field "userpassword","111"
+   I click "//input[@type='submit'][contains(@value, 'Войти')]"
+ I don't see "Здравствуйте, ",".auth-user__hello"
+ I see "Ошибка: указанные Вами логин и пароль в базе данных не найдены."
+ PASSED
+
+UserCest: Sign in bad symbols in login password
+Signature: UserCest:signInBadSymbolsInLoginPassword
+Test: tests\acceptance\PageObjectCest.php:signInBadSymbolsInLoginPassword
+Scenario --
+ So that I access website features for logged-in users
+ Page\Login: login "مشوه","123"
+   I am on page "https://xn----8sbbddoe5esabkbhs.xn--p1ai/"
+   I click "//a[@class='btn'][contains(@data-target, '#myModal')]"
+   I fill field "userlogin","مشوه"
+   I fill field "userpassword","123"
+   I click "//input[@type='submit'][contains(@value, 'Войти')]"
+ I don't see "Здравствуйте, ",".auth-user__hello"
+ I see "Ошибка: указанные Вами логин и пароль в базе данных не найдены."
+ 
+ So that I access website features for logged-in users
+ Page\Login: login "testme","مشوه"
+   I am on page "https://xn----8sbbddoe5esabkbhs.xn--p1ai/"
+   I click "//a[@class='btn'][contains(@data-target, '#myModal')]"
+   I fill field "userlogin","testme"
+   I fill field "userpassword","مشوه"
+   I click "//input[@type='submit'][contains(@value, 'Войти')]"
+ I don't see "Здравствуйте, ",".auth-user__hello"
+ I see "Ошибка: указанные Вами логин и пароль в базе данных не найдены."
+ PASSED
+
+UserCest: Sign in upper case login
+Signature: UserCest:signInUpperCaseLogin
+Test: tests\acceptance\PageObjectCest.php:signInUpperCaseLogin
+Scenario --
+ So that I access website features for logged-in users
+ Page\Login: login "TESTME","123"
+   I am on page "https://xn----8sbbddoe5esabkbhs.xn--p1ai/"
+   I click "//a[@class='btn'][contains(@data-target, '#myModal')]"
+   I fill field "userlogin","TESTME"
+   I fill field "userpassword","123"
+   I click "//input[@type='submit'][contains(@value, 'Войти')]"
+ I see "Здравствуйте, ",".auth-user__hello"
+ PASSED
+
+UserCest: Sign in different case login
+Signature: UserCest:signInDifferentCaseLogin
+Test: tests\acceptance\PageObjectCest.php:signInDifferentCaseLogin
+Scenario --
+ So that I access website features for logged-in users
+ Page\Login: login "tEsTmE","123"
+   I am on page "https://xn----8sbbddoe5esabkbhs.xn--p1ai/"
+   I click "//a[@class='btn'][contains(@data-target, '#myModal')]"
+   I fill field "userlogin","tEsTmE"
+   I fill field "userpassword","123"
+   I click "//input[@type='submit'][contains(@value, 'Войти')]"
+ I see "Здравствуйте, ",".auth-user__hello"
+ PASSED
+
+UserCest: Sign in different case password
+Signature: UserCest:signInDifferentCasePassword
+Test: tests\acceptance\PageObjectCest.php:signInDifferentCasePassword
+Scenario --
+ So that I access website features for logged-in users
+ Page\Login: login " justlogin123","itSpass123"
+   I am on page "https://xn----8sbbddoe5esabkbhs.xn--p1ai/"
+   I click "//a[@class='btn'][contains(@data-target, '#myModal')]"
+   I fill field "userlogin"," justlogin123"
+   I fill field "userpassword","itSpass123"
+   I click "//input[@type='submit'][contains(@value, 'Войти')]"
+ I don't see "Здравствуйте, ",".auth-user__hello"
+ I see "Ошибка: указанные Вами логин и пароль в базе данных не найдены."
+ PASSED
+
+UserCest: Sign in hidden password
+Signature: UserCest:signInHiddenPassword
+Test: tests\acceptance\PageObjectCest.php:signInHiddenPassword
+Scenario --
+ Page\Login: fill fields login password "testme","123"
+   I am on page "https://xn----8sbbddoe5esabkbhs.xn--p1ai/"
+   I click "//a[@class='btn'][contains(@data-target, '#myModal')]"
+   I fill field "userlogin","testme"
+   I fill field "userpassword","123"
+ I grab text from "//input[@id = 'userpassword']"
+ I don't see "123"
+ PASSED
+
+UserCest: Sign in encrypted password
+Signature: UserCest:signInEncryptedPassword
+Test: tests\acceptance\PageObjectCest.php:signInEncryptedPassword
+Scenario --
+ Page\Login: fill fields login password "testme","123"
+   I am on page "https://xn----8sbbddoe5esabkbhs.xn--p1ai/"
+   I click "//a[@class='btn'][contains(@data-target, '#myModal')]"
+   I fill field "userlogin","testme"
+   I fill field "userpassword","123"
+ I grab text from "//input[@id='userpassword'][contains(@type, 'password')]"
+ PASSED
+
+UserCest: Sign in over limit symbols in login password
+Signature: UserCest:signInOverLimitSymbolsInLoginPassword
+Test: tests\acceptance\PageObjectCest.php:signInOverLimitSymbolsInLoginPassword
+Scenario --
+ So that I access website features for logged-in users
+ Page\Login: login "123456789-123456789-123456789-123456789-123456789-123456789-12345","123"
+   I am on page "https://xn----8sbbddoe5esabkbhs.xn--p1ai/"
+   I click "//a[@class='btn'][contains(@data-target, '#myModal')]"
+   I fill field "userlogin","123456789-123456789-123456789-123456789-123456789-123456789-12345"
+   I fill field "userpassword","123"
+   I click "//input[@type='submit'][contains(@value, 'Войти')]"
+ I don't see "Здравствуйте, ",".auth-user__hello"
+ I see "Ошибка: указанные Вами логин и пароль в базе данных не найдены."
+ 
+ So that I access website features for logged-in users
+ Page\Login: login "testme","123456789-123456789-123456789-123456789-123456789-123456789-12345"
+   I am on page "https://xn----8sbbddoe5esabkbhs.xn--p1ai/"
+   I click "//a[@class='btn'][contains(@data-target, '#myModal')]"
+   I fill field "userlogin","testme"
+   I fill field "userpassword","123456789-123456789-123456789-123456789-123456789-123456789-12345"
+   I click "//input[@type='submit'][contains(@value, 'Войти')]"
+ I don't see "Здравствуйте, ",".auth-user__hello"
+ I see "Ошибка: указанные Вами логин и пароль в базе данных не найдены."
+ PASSED
+
+UserCest: Sign in space at begin and end login
+Signature: UserCest:signInSpaceAtBeginAndEndLogin
+Test: tests\acceptance\PageObjectCest.php:signInSpaceAtBeginAndEndLogin
+Scenario --
+ Page\Login: fill fields login password "testme  ","123"
+   I am on page "https://xn----8sbbddoe5esabkbhs.xn--p1ai/"
+   I click "//a[@class='btn'][contains(@data-target, '#myModal')]"
+   I fill field "userlogin","testme  "
+   I fill field "userpassword","123"
+ I click "//input[@type='submit'][contains(@value, 'Войти')]"
+ I see "Здравствуйте, ",".auth-user__hello"
+ PASSED
+
+UserCest: Sign in space at begin and end password
+Signature: UserCest:signInSpaceAtBeginAndEndPassword
+Test: tests\acceptance\PageObjectCest.php:signInSpaceAtBeginAndEndPassword
+Scenario --
+ Page\Login: fill fields login password "testme","  123 "
+   I am on page "https://xn----8sbbddoe5esabkbhs.xn--p1ai/"
+   I click "//a[@class='btn'][contains(@data-target, '#myModal')]"
+   I fill field "userlogin","testme"
+   I fill field "userpassword","  123 "
+ I click "//input[@type='submit'][contains(@value, 'Войти')]"
+ I don't see "Здравствуйте, ",".auth-user__hello"
+ I see "Ошибка: указанные Вами логин и пароль в базе данных не найдены."
+ PASSED
+
+UserCest: Sign in space in middle login password
+Signature: UserCest:signInSpaceInMiddleLoginPassword
+Test: tests\acceptance\PageObjectCest.php:signInSpaceInMiddleLoginPassword
+Scenario --
+ So that I access website features for logged-in users
+ Page\Login: login "test me","123"
+   I am on page "https://xn----8sbbddoe5esabkbhs.xn--p1ai/"
+   I click "//a[@class='btn'][contains(@data-target, '#myModal')]"
+   I fill field "userlogin","test me"
+   I fill field "userpassword","123"
+   I click "//input[@type='submit'][contains(@value, 'Войти')]"
+ I don't see "Здравствуйте, ",".auth-user__hello"
+ I see "Ошибка: указанные Вами логин и пароль в базе данных не найдены."
+ 
+ So that I access website features for logged-in users
+ Page\Login: login "testme","1 23"
+   I am on page "https://xn----8sbbddoe5esabkbhs.xn--p1ai/"
+   I click "//a[@class='btn'][contains(@data-target, '#myModal')]"
+   I fill field "userlogin","testme"
+   I fill field "userpassword","1 23"
+   I click "//input[@type='submit'][contains(@value, 'Войти')]"
+ I don't see "Здравствуйте, ",".auth-user__hello"
+ I see "Ошибка: указанные Вами логин и пароль в базе данных не найдены."
+ PASSED
