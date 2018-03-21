@@ -28,27 +28,32 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
-<link rel="stylesheet" type="text/css" href="/_syscss/bootstrap.min.css?179" />
-<link rel="stylesheet" type="text/css" href="/_syscss/style.min.css?179" />
-<link rel="stylesheet" type="text/css" href="/_syslib/tinybox/tinybox.css?179" />
-<link rel="stylesheet" type="text/css" href="/_syslib/owlcarousel/owl.carousel.min.css?179" />
-<link rel="stylesheet" type="text/css" href="/_css/client_styles.css?179" />
-<script type="text/javascript" src="/_syslib/jquery-1.11.min.js?179"></script>
-<script type="text/javascript" src="/_syslib/lib.common.js?179"></script>
-<script type="text/javascript" src="/_client-side/cf.js?179"></script>
-<script type="text/javascript" src="/_syslib/bootstrap.min.js?179"></script>
-<script type="text/javascript" src="/_client-side/fixed-search-thead.js?179"></script>
-<script type="text/javascript" src="/_client-side/script.js?179"></script>
-<script type="text/javascript" src="/_syslib/search/search.js?179"></script>
-<script type="text/javascript" src="/_syslib/modules/module.basket.js?179"></script>
-<script type="text/javascript" src="/_syslib/modules/module.small-basket.js?179"></script>
-<script type="text/javascript" src="/_syslib/form/DateTimeBox.js?179"></script>
-<script type="text/javascript" src="/_syslib/tinybox/tinybox.js?179"></script>
-<script type="text/javascript" src="/_syslib/owlcarousel/owl.carousel.js?179"></script>
-<script type="text/javascript" src="/_syslib/form/paginator-resizer.js?179"></script>
-<script type="text/javascript" src="/_syslib/form/Form.js?179"></script>
-<script type="text/javascript" src="/_syslib/form/DropDownList.js?179"></script>
-<script type="text/javascript" src="/_syslib/md5.js?179"></script>
+<link rel="stylesheet" type="text/css" href="/_syscss/bootstrap.min.css?4771" />
+<link rel="stylesheet" type="text/css" href="/_syscss/style.min.css?4771" />
+<link rel="stylesheet" type="text/css" href="/_syslib/tinybox/tinybox.css?4771" />
+<link rel="stylesheet" type="text/css" href="/_syslib/owlcarousel/owl.carousel.min.css?4771" />
+<link rel="stylesheet" type="text/css" href="/_css/client_styles.css?4771" />
+<script type="text/javascript" src="/_syslib/jquery-1.11.min.js?4771"></script>
+<script type="text/javascript" src="/_syslib/lib.common.js?4771"></script>
+<script type="text/javascript" src="/_client-side/cf.js?4771"></script>
+<script type="text/javascript" src="/_syslib/bootstrap.min.js?4771"></script>
+<script type="text/javascript" src="/_client-side/fixed-search-thead.js?4771"></script>
+<script type="text/javascript" src="/_client-side/script.js?4771"></script>
+<script type="text/javascript" src="/_syslib/search/search.js?4771"></script>
+<script type="text/javascript" src="/_syslib/modules/module.basket.js?4771"></script>
+<script type="text/javascript" src="/_syslib/modules/module.small-basket.js?4771"></script>
+<script type="text/javascript" src="/_syslib/form/DateTimeBox.js?4771"></script>
+<script type="text/javascript" src="/_syslib/tinybox/tinybox.js?4771"></script>
+<script type="text/javascript" src="/_syslib/owlcarousel/owl.carousel.js?4771"></script>
+<script type="text/javascript" src="/_syslib/form/paginator-resizer.js?4771"></script>
+<script type="text/javascript" src="/_syslib/form/Form.js?4771"></script>
+<script type="text/javascript" src="/_syslib/form/DropDownList.js?4771"></script>
+
+				<script type="text/javascript">
+					setCookie('userlogin', 'testme', 1209600000);
+					setCookie('userpassword', '202cb962ac59075b964b07152d234b70', 1209600000);
+					setCookie('userdomain', '', 1209600000);
+				</script>
 
 <script>
 	var jsTr = {'Ещё': 'Еще', 'Добавление в корзину...': 'Добавление в корзину...', 'Заказано': 'Заказано'};
@@ -83,35 +88,11 @@
 					<div class="header__contact-wrapper">
 						<div class="contact-details contact-details_top">
 	<div class="contact-details__item">
-	<div class="select-stock-point" id="select-stock-point">
-		<svg class="select-stock-point__icon">
-			<use xlink:href="/_sysimg/svg/contacts-sprite.svg#address">
-		</svg>
-		<button class="select-stock-point__show" type="button">
-			<div class="contact-details__value" data-contact-prop="address">Киров, ул. Профсоюзная, 1</div>
-			<svg class="select-stock-point__show-icon">
-				<use xlink:href="/_sysimg/svg/ui.svg#arrow">
-			</svg>
-		</button>
-		<div id="select-stock-point-list" class="select-stock-point__drop" v-cloak>
-			<div class="select-stock-point__header">Выберите торговую точку:</div>
-			<div class="select-stock-point__container">
-				<div class="select-stock-point__list" >
-					<div class="select-stock-point__item" v-for="item in list">
-						<input class="select-stock-point__radio" v-on:click="selectStock(item.id)" type="radio" value="item.id" v-bind:checked="item.active" :id="item.id" name="select-stock">
-						<label class="select-stock-point__label" :for="item.id">
-							<span class="select-stock-point__address">{{item.address}}</span>
-							<div class="select-stock-point__value" v-for="value in item.data">{{value}}</div>
-							<button v-if="showMap && item.coordinates" v-on:click="showStockOnMap(item.id)" class="select-stock-point__show-map" type="button">Показать на карте</button>
-						</label>
-					</div>
-				</div>
-				<div class="select-stock-point__map"></div>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="contact-details__item">
+	<svg class="contact-details__icon">
+		<use xlink:href="/_sysimg/svg/contacts-sprite.svg#address">
+	</svg>
+	<div class="contact-details__value" data-contact-prop="address">Киров, ул. Профсоюзная, 1</div>
+</div><div class="contact-details__item">
 	<svg class="contact-details__icon">
 		<use xlink:href="/_sysimg/svg/contacts-sprite.svg#phone">
 	</svg>
@@ -140,8 +121,61 @@
 		</div>
 	</div>
 						<div class="header__user-info hidden-sx hidden-sm">
-								<a class="btn" data-toggle="modal" data-target="#myModal">Войти</a>
-	<a class="btn btn_view_common header__reg-button" href="/registration.html">Регистрация</a>
+								<div class="auth-user">
+		<span class="auth-user__hello">Здравствуйте, <a class="auth-user__login-name">Клиент</a></span>
+		<!--Begin Меню пользователя-->
+		
+<ul class="user-menu">
+												<li class="user-menu__item" data-separator="yes">
+				<a class="user-menu__link" href="/shop/personal/info.html" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#account"></use></svg>					Мой профиль				</a>
+			</li>
+											<li class="user-menu__item" data-separator="">
+				<a class="user-menu__link" href="/shop/documents.html" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#doc"></use></svg>					Документы				</a>
+			</li>
+											<li class="user-menu__item" data-separator="">
+				<a class="user-menu__link" href="/shop/balance.html" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#wallet"></use></svg>					Состояние счета				</a>
+			</li>
+											<li class="user-menu__item" data-separator="yes">
+				<a class="user-menu__link" href="/shop/vin_requests.html" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#vin"></use></svg>					Запросы по VIN				</a>
+			</li>
+											<li class="user-menu__item" data-separator="">
+				<a class="user-menu__link" href="/shop/myorders.html" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#shop"></use></svg>					Мои заказы				</a>
+			</li>
+											<li class="user-menu__item" data-separator="">
+				<a class="user-menu__link" href="/shop/personal/delivery.html" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#pin"></use></svg>					Мои адреса				</a>
+			</li>
+											<li class="user-menu__item" data-separator="">
+				<a class="user-menu__link" href="/shop/personal/payers.html" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#receipt"></use></svg>					Мои реквизиты				</a>
+			</li>
+											<li class="user-menu__item" data-separator="">
+				<a class="user-menu__link" href="/multisearch/"  rel="tiny" data-width="900">
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#multisearch"></use></svg>					Групповая проценка				</a>
+			</li>
+											<li class="user-menu__item" data-separator="">
+				<a class="user-menu__link" href="/multisearch-history/" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#multisearch-history"></use></svg>					История проценок				</a>
+			</li>
+											<li class="user-menu__item" data-separator="">
+				<a class="user-menu__link" href="/shop/personal/cars.html" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#auto"></use></svg>					Мои автомобили				</a>
+			</li>
+				<li class="user-menu__item user-menu__item--last">
+		<a class="user-menu__link" href="/?logout">
+			<svg class="user-menu__svg-icon">
+				<use xlink:href="/_sysimg/svg/usermi-sprite.svg#power"></use>
+			</svg>Выход		</a>
+	</li>
+</ul>
+
+		<!--End Меню пользователя-->
+	</div>
 						</div>
 					</div>
 				</div>
@@ -167,8 +201,61 @@
 						</button>
 						<!--End Кнопка для показа меню-->
 						<div class="header-nav__user-info visible-sm">
-								<a class="btn" data-toggle="modal" data-target="#myModal">Войти</a>
-	<a class="btn btn_view_common header__reg-button" href="/registration.html">Регистрация</a>
+								<div class="auth-user">
+		<span class="auth-user__hello">Здравствуйте, <a class="auth-user__login-name">Клиент</a></span>
+		<!--Begin Меню пользователя-->
+		
+<ul class="user-menu">
+												<li class="user-menu__item" data-separator="yes">
+				<a class="user-menu__link" href="/shop/personal/info.html" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#account"></use></svg>					Мой профиль				</a>
+			</li>
+											<li class="user-menu__item" data-separator="">
+				<a class="user-menu__link" href="/shop/documents.html" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#doc"></use></svg>					Документы				</a>
+			</li>
+											<li class="user-menu__item" data-separator="">
+				<a class="user-menu__link" href="/shop/balance.html" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#wallet"></use></svg>					Состояние счета				</a>
+			</li>
+											<li class="user-menu__item" data-separator="yes">
+				<a class="user-menu__link" href="/shop/vin_requests.html" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#vin"></use></svg>					Запросы по VIN				</a>
+			</li>
+											<li class="user-menu__item" data-separator="">
+				<a class="user-menu__link" href="/shop/myorders.html" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#shop"></use></svg>					Мои заказы				</a>
+			</li>
+											<li class="user-menu__item" data-separator="">
+				<a class="user-menu__link" href="/shop/personal/delivery.html" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#pin"></use></svg>					Мои адреса				</a>
+			</li>
+											<li class="user-menu__item" data-separator="">
+				<a class="user-menu__link" href="/shop/personal/payers.html" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#receipt"></use></svg>					Мои реквизиты				</a>
+			</li>
+											<li class="user-menu__item" data-separator="">
+				<a class="user-menu__link" href="/multisearch/"  rel="tiny" data-width="900">
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#multisearch"></use></svg>					Групповая проценка				</a>
+			</li>
+											<li class="user-menu__item" data-separator="">
+				<a class="user-menu__link" href="/multisearch-history/" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#multisearch-history"></use></svg>					История проценок				</a>
+			</li>
+											<li class="user-menu__item" data-separator="">
+				<a class="user-menu__link" href="/shop/personal/cars.html" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#auto"></use></svg>					Мои автомобили				</a>
+			</li>
+				<li class="user-menu__item user-menu__item--last">
+		<a class="user-menu__link" href="/?logout">
+			<svg class="user-menu__svg-icon">
+				<use xlink:href="/_sysimg/svg/usermi-sprite.svg#power"></use>
+			</svg>Выход		</a>
+	</li>
+</ul>
+
+		<!--End Меню пользователя-->
+	</div>
 						</div>
 						<div class="header-nav__menu hidden-xs">
 							<!--Begin Основное меню-->
@@ -345,34 +432,34 @@
 			<div class="user-search-history__list-container">
 				<ul id="search-history-list" class="user-search-history__list">
 											<li class="user-search-history__item">
-							<a href="/search.html?article=218111G000&sort___search_results_by=final_price&smode=A" class="user-search-history__link">218111G000</a>
+							<a href="/search.html?article=MN102608&sort___search_results_by=final_price&smode=A" class="user-search-history__link">MN102608</a>
 						</li>
 											<li class="user-search-history__item">
-							<a href="/search.html?article=553162G700&sort___search_results_by=final_price&smode=A" class="user-search-history__link">553162G700</a>
+							<a href="/search.html?article=1114500Q0R&sort___search_results_by=final_price&smode=A" class="user-search-history__link">1114500Q0R</a>
 						</li>
 											<li class="user-search-history__item">
-							<a href="/search.html?article=02T301192C&sort___search_results_by=final_price&smode=A" class="user-search-history__link">02T301192C</a>
+							<a href="/search.html?article=531000C260B1&sort___search_results_by=final_price&smode=A" class="user-search-history__link">531000C260B1</a>
 						</li>
 											<li class="user-search-history__item">
-							<a href="/search.html?article=218311G000&sort___search_results_by=final_price&smode=A" class="user-search-history__link">218311G000</a>
+							<a href="/search.html?article=701819876&sort___search_results_by=final_price&smode=A" class="user-search-history__link">701819876</a>
 						</li>
 											<li class="user-search-history__item">
-							<a href="/search.html?article=1809111&sort___search_results_by=final_price&smode=A" class="user-search-history__link">1809111</a>
+							<a href="/search.html?article=1731716&sort___search_results_by=final_price&smode=A" class="user-search-history__link">1731716</a>
 						</li>
 											<li class="user-search-history__item">
-							<a href="/search.html?article=231007C600&sort___search_results_by=final_price&smode=A" class="user-search-history__link">231007C600</a>
+							<a href="/search.html?article=24341422419&sort___search_results_by=final_price&smode=A" class="user-search-history__link">24341422419</a>
 						</li>
 											<li class="user-search-history__item">
-							<a href="/search.html?article=622355333R&sort___search_results_by=final_price&smode=A" class="user-search-history__link">622355333R</a>
+							<a href="/search.html?article=MB699716&sort___search_results_by=final_price&smode=A" class="user-search-history__link">MB699716</a>
 						</li>
 											<li class="user-search-history__item">
-							<a href="/search.html?article=7P0857551G3H8&sort___search_results_by=final_price&smode=A" class="user-search-history__link">7P0857551G3H8</a>
+							<a href="/search.html?article=495261R001&sort___search_results_by=final_price&smode=A" class="user-search-history__link">495261R001</a>
 						</li>
 											<li class="user-search-history__item">
-							<a href="/search.html?article=553483K600&sort___search_results_by=final_price&smode=A" class="user-search-history__link">553483K600</a>
+							<a href="/search.html?article=MB858407&sort___search_results_by=final_price&smode=A" class="user-search-history__link">MB858407</a>
 						</li>
 											<li class="user-search-history__item">
-							<a href="/search.html?article=638413X00A&sort___search_results_by=final_price&smode=A" class="user-search-history__link">638413X00A</a>
+							<a href="/search.html?article=622943&sort___search_results_by=final_price&smode=A" class="user-search-history__link">622943</a>
 						</li>
 									</ul>
 			</div>
@@ -400,6 +487,7 @@
 </div>	</div>
 </form>
 						<div class="header-catalog__right">
+															<a class="orders-link hidden-xs hidden-sm header-catalog__orders-link" href="/shop/myorders.html">Мои заказы</a>
 																					<a class="order-amount header-catalog__basket" href="/shop/basket.html" data-field="module-basket">
 								<span class="order-amount__count" data-field="module-basket-count">0</span>
 								<span class="hidden-xs">
@@ -970,7 +1058,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">90000 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="2" href="/shop/basket.html?func=add&sid=2&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="45" href="/shop/basket.html?func=add&sid=45&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -985,7 +1073,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">490 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="3" href="/shop/basket.html?func=add&sid=3&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="46" href="/shop/basket.html?func=add&sid=46&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1000,7 +1088,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">8415 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="4" href="/shop/basket.html?func=add&sid=4&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="47" href="/shop/basket.html?func=add&sid=47&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1015,7 +1103,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">79500 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="5" href="/shop/basket.html?func=add&sid=5&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="48" href="/shop/basket.html?func=add&sid=48&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1030,7 +1118,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">1750 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="6" href="/shop/basket.html?func=add&sid=6&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="49" href="/shop/basket.html?func=add&sid=49&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1045,7 +1133,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">7600 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="7" href="/shop/basket.html?func=add&sid=7&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="50" href="/shop/basket.html?func=add&sid=50&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1060,7 +1148,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">68850 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="8" href="/shop/basket.html?func=add&sid=8&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="51" href="/shop/basket.html?func=add&sid=51&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1075,7 +1163,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">1350 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="9" href="/shop/basket.html?func=add&sid=9&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="52" href="/shop/basket.html?func=add&sid=52&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1090,7 +1178,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">300 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="10" href="/shop/basket.html?func=add&sid=10&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="53" href="/shop/basket.html?func=add&sid=53&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1105,7 +1193,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">1580 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="11" href="/shop/basket.html?func=add&sid=11&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="54" href="/shop/basket.html?func=add&sid=54&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1120,7 +1208,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">280 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="12" href="/shop/basket.html?func=add&sid=12&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="55" href="/shop/basket.html?func=add&sid=55&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1135,7 +1223,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">3320 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="13" href="/shop/basket.html?func=add&sid=13&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="56" href="/shop/basket.html?func=add&sid=56&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1150,7 +1238,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">4700 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="14" href="/shop/basket.html?func=add&sid=14&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="57" href="/shop/basket.html?func=add&sid=57&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1165,7 +1253,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">200 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="15" href="/shop/basket.html?func=add&sid=15&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="58" href="/shop/basket.html?func=add&sid=58&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1180,7 +1268,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">2200 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="16" href="/shop/basket.html?func=add&sid=16&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="59" href="/shop/basket.html?func=add&sid=59&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1195,7 +1283,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">85950 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="17" href="/shop/basket.html?func=add&sid=17&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="60" href="/shop/basket.html?func=add&sid=60&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1210,7 +1298,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">9550 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="18" href="/shop/basket.html?func=add&sid=18&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="61" href="/shop/basket.html?func=add&sid=61&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1225,7 +1313,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">98220 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="19" href="/shop/basket.html?func=add&sid=19&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="62" href="/shop/basket.html?func=add&sid=62&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1240,7 +1328,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">9950 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="20" href="/shop/basket.html?func=add&sid=20&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="63" href="/shop/basket.html?func=add&sid=63&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1255,7 +1343,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">100730 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="21" href="/shop/basket.html?func=add&sid=21&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="64" href="/shop/basket.html?func=add&sid=64&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1270,7 +1358,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">10190 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="22" href="/shop/basket.html?func=add&sid=22&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="65" href="/shop/basket.html?func=add&sid=65&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1285,7 +1373,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">30100 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="23" href="/shop/basket.html?func=add&sid=23&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="66" href="/shop/basket.html?func=add&sid=66&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1300,7 +1388,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">860 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="24" href="/shop/basket.html?func=add&sid=24&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="67" href="/shop/basket.html?func=add&sid=67&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1315,7 +1403,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">3240 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="25" href="/shop/basket.html?func=add&sid=25&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="68" href="/shop/basket.html?func=add&sid=68&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1330,7 +1418,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">3905 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="26" href="/shop/basket.html?func=add&sid=26&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="69" href="/shop/basket.html?func=add&sid=69&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1345,7 +1433,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">37290 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="27" href="/shop/basket.html?func=add&sid=27&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="70" href="/shop/basket.html?func=add&sid=70&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1360,7 +1448,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">14700 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="28" href="/shop/basket.html?func=add&sid=28&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="71" href="/shop/basket.html?func=add&sid=71&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1375,7 +1463,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">42060 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="29" href="/shop/basket.html?func=add&sid=29&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="72" href="/shop/basket.html?func=add&sid=72&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1390,7 +1478,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">4360 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="30" href="/shop/basket.html?func=add&sid=30&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="73" href="/shop/basket.html?func=add&sid=73&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1405,7 +1493,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">48340 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="31" href="/shop/basket.html?func=add&sid=31&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="74" href="/shop/basket.html?func=add&sid=74&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1420,7 +1508,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">4940 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="32" href="/shop/basket.html?func=add&sid=32&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="75" href="/shop/basket.html?func=add&sid=75&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1435,7 +1523,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">14100 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="33" href="/shop/basket.html?func=add&sid=33&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="76" href="/shop/basket.html?func=add&sid=76&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1450,7 +1538,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">92190 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="34" href="/shop/basket.html?func=add&sid=34&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="77" href="/shop/basket.html?func=add&sid=77&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1465,7 +1553,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">36650 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="35" href="/shop/basket.html?func=add&sid=35&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="78" href="/shop/basket.html?func=add&sid=78&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1480,7 +1568,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">36660 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="36" href="/shop/basket.html?func=add&sid=36&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="79" href="/shop/basket.html?func=add&sid=79&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1495,7 +1583,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">48250 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="37" href="/shop/basket.html?func=add&sid=37&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="80" href="/shop/basket.html?func=add&sid=80&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1510,7 +1598,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">6490 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="38" href="/shop/basket.html?func=add&sid=38&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="81" href="/shop/basket.html?func=add&sid=81&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1525,7 +1613,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">61950 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="39" href="/shop/basket.html?func=add&sid=39&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="82" href="/shop/basket.html?func=add&sid=82&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1540,7 +1628,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">39260 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="40" href="/shop/basket.html?func=add&sid=40&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="83" href="/shop/basket.html?func=add&sid=83&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1555,7 +1643,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">11280 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="41" href="/shop/basket.html?func=add&sid=41&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="84" href="/shop/basket.html?func=add&sid=84&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1570,7 +1658,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">8060 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="42" href="/shop/basket.html?func=add&sid=42&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="85" href="/shop/basket.html?func=add&sid=85&amount=1"></a>
 											</div>
 				</div>
 							<div class="popular-goods__item">
@@ -1585,7 +1673,7 @@
 					</a>
 					<div class="popular-goods__bottom">
 													<span class="popular-goods__price">3860 &#8381;</span>
-							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="43" href="/shop/basket.html?func=add&sid=43&amount=1"></a>
+							<a class="popular-goods__add-basket btn btn--add-basket" data-field='popular-goods-basket' data-sid="86" href="/shop/basket.html?func=add&sid=86&amount=1"></a>
 											</div>
 				</div>
 					</div>
@@ -1872,58 +1960,9 @@
 </div>
 
 <div class="container-push">
-	<script type='text/javascript'>
-					if(!window._forms) window._forms = [];
-					window._forms["login"] = new WarForm("login", {
-							customValidate: function(arg){
-				jqWar.get(
-					'/?fn=auth_hash&hash='+md5(arg.userpassword.value), 
-					function(responseText){
-						arg.loginform.value = 'safe';
-						arg.userpassword.value = responseText;
-						arg.submit();
-					}
-				);
-				return false;
-			},
-							messages: {"required":"\u042d\u0442\u043e \u043f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e \u043a \u0437\u0430\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044e"}
-							,humanCheckHref: "/_phplib/check/img.php"
-					});
-					document.addEventListener("DOMContentLoaded", function() { 
-						window._forms["login"].init();
-					});
-				</script><div id="CustomerBasketId">
+	<div id="CustomerBasketId">
 
 	<div class="auth-block">
-	
-		
-		<!-- Modal -->
-		<div class="row">
-		<div class="modal fade in" id="myModal" tabindex="-1" role="dialog" aria-labelledby="loginFormTitle">
-			<div class="modal-dialog auth-modal-dialog" role="document">
-				<div class="auth-modal-content modal-content">
-					<div class="auth-modal-header">
-						<button type="button" class="close modal-dialog__close" data-dismiss="modal" aria-label="Close"></button>
-						<div class="auth-title" id="loginFormTitle">Авторизация</div>
-					</div>
-					<div class="auth-modal-body modal-body">
-						<form id="login" name="login" action="/" method="POST" onsubmit="">
-							<input class="clearAll TextBox" id="loginform" type="hidden" name="loginform" value="1" />							<input class="clearAll TextBox" id="remember" type="hidden" name="remember" value="1" />							<div class="auth-input">
-								<label class="auth-label">Логин</label>
-								<input class="clearAll TextBox required" id="userlogin" type="text" name="userlogin" value="" placeholder="логин" />							</div>
-							<div class="auth-input">
-								<label class="auth-label">Пароль</label>
-								<input class="clearAll TextBox required" id="userpassword" type="password" name="userpassword" value="" placeholder="пароль" />							</div>
-														<input class="btn btn--auth-submit" type="submit" value="Войти">
-														<a class="auth-link" href="/recover_password.html">Забыли пароль?</a>
-						</form>
-					</div>
-
-				</div>
-			</div>
-		</div>
-		</div>
-
 		</div>
 
 </div></div>
@@ -1935,10 +1974,7 @@
 	<div class="mobile-nav__item">
 		<div class="mobile-nav__header">
 			<div class="mobile-nav__title">Меню</div>
-							<div class="mobile-nav__actions">
-					<a class="btn mobile-nav__btn">Войти</a>
-					<a class="btn btn_view_common mobile-nav__btn" href="/registration.html">Регистрация</a>
-				</div>
+							<a class="btn mobile-nav__btn-account">Личный кабинет</a>
 					</div>
 		<ul class="mobile-menu">
 									<li class="mobile-menu__item mobile-menu__item--dropdown">
@@ -2044,49 +2080,58 @@
 	</div>
 	<div class="mobile-nav__item">
 
-		
-			<script type='text/javascript'>
-					if(!window._forms) window._forms = [];
-					window._forms["login"] = new WarForm("login", {
-							customValidate: function(arg){
-				jqWar.get(
-					'/?fn=auth_hash&hash='+md5(arg.userpassword.value), 
-					function(responseText){
-						arg.loginform.value = 'safe';
-						arg.userpassword.value = responseText;
-						arg.submit();
-					}
-				);
-				return false;
-			},
-							messages: {"required":"\u042d\u0442\u043e \u043f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e \u043a \u0437\u0430\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044e"}
-							,humanCheckHref: "/_phplib/check/img.php"
-					});
-					document.addEventListener("DOMContentLoaded", function() { 
-						window._forms["login"].init();
-					});
-				</script><div id="CustomerBasketId">
-
-	<div class="auth-block">
-	
-		
-			<div class="auth-title" id="myModalLabel">Авторизация</div>
-
-			<form id="login" name="login" action="/" method="POST" onsubmit="">
-				<input class="clearAll TextBox" id="loginform" type="hidden" name="loginform" value="1" />				<input class="clearAll TextBox" id="remember" type="hidden" name="remember" value="1" />				<div class="auth-input">
-					<label class="auth-label">Логин</label>
-					<input class="clearAll TextBox required" id="userlogin" type="text" name="userlogin" value="" placeholder="логин" />				</div>
-				<div class="auth-input">
-					<label class="auth-label">Пароль</label>
-					<input class="clearAll TextBox required" id="userpassword" type="password" name="userpassword" value="" placeholder="пароль" />				</div>
-								<input class="btn btn--auth-submit" type="submit" value="Войти"><br>
-								<a class="auth-link" href="/recover_password.html">Забыли пароль?</a>
-			</form>
-
-
-		</div>
-
-</div>
+					<div class="mobile-nav__header">
+				<div class="mobile-nav__title">Личный кабинет</div>
+			</div>
+			
+<ul class="user-menu">
+												<li class="user-menu__item">
+				<a class="user-menu__link" href="/shop/personal/info.html" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#account"></use></svg>					Мой профиль				</a>
+			</li>
+											<li class="user-menu__item">
+				<a class="user-menu__link" href="/shop/documents.html" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#doc"></use></svg>					Документы				</a>
+			</li>
+											<li class="user-menu__item">
+				<a class="user-menu__link" href="/shop/balance.html" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#wallet"></use></svg>					Состояние счета				</a>
+			</li>
+											<li class="user-menu__item">
+				<a class="user-menu__link" href="/shop/vin_requests.html" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#vin"></use></svg>					Запросы по VIN				</a>
+			</li>
+											<li class="user-menu__item">
+				<a class="user-menu__link" href="/shop/myorders.html" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#shop"></use></svg>					Мои заказы				</a>
+			</li>
+											<li class="user-menu__item">
+				<a class="user-menu__link" href="/shop/personal/delivery.html" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#pin"></use></svg>					Мои адреса				</a>
+			</li>
+											<li class="user-menu__item">
+				<a class="user-menu__link" href="/shop/personal/payers.html" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#receipt"></use></svg>					Мои реквизиты				</a>
+			</li>
+											<li class="user-menu__item">
+				<a class="user-menu__link" href="/multisearch/"  rel="tiny" data-width="900">
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#multisearch"></use></svg>					Групповая проценка				</a>
+			</li>
+											<li class="user-menu__item">
+				<a class="user-menu__link" href="/multisearch-history/" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#multisearch-history"></use></svg>					История проценок				</a>
+			</li>
+											<li class="user-menu__item">
+				<a class="user-menu__link" href="/shop/personal/cars.html" >
+										<svg class="user-menu__svg-icon"><use xlink:href="/_sysimg/svg/usermi-sprite.svg#auto"></use></svg>					Мои автомобили				</a>
+			</li>
+				<li class="user-menu__item user-menu__item--last">
+		<a class="user-menu__link" href="/?logout">
+			<svg class="user-menu__svg-icon">
+				<use xlink:href="/_sysimg/svg/usermi-sprite.svg#power"></use>
+			</svg>Выход		</a>
+	</li>
+</ul>
 				<a class="mobile-nav__btn-back">Назад</a>
 
 	</div>
@@ -2159,9 +2204,6 @@
 			})(jqWar);
 
 		 
-				jqWar('#tryforfree').modal('show')
-				setCookie('free-showing', 1, 86400000);
-			 
 				jqWar('[data-target="tryforfree"], .main-slider__item:not(.main-slider__item--link)').click(function(e){
 					e.preventDefault();
 				

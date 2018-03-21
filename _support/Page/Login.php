@@ -11,16 +11,20 @@ class Login
     public static $submitButton = "//input[@type='submit'][contains(@value, 'Войти')]";
     public static $helloform = ".auth-user__hello";
     public static $closeback = "//button[@type='button'][contains(@class, 'close ico-auth-close')]"; //gotohell
-
+    public static $logout = '//ul[@class="user-menu"]/li/a[@href="/?logout"]';
+    public static $loginError = 'Ошибка: указанные Вами логин и пароль в базе данных не найдены.';
     protected $user;
 
     public function __construct(\AcceptanceTester $I) 
     {
         $this->user = $I;
     }
+    
     public function login($userlogin, $userpassword) 
     {
-        $I = $this->user;
+        $I = $this->user;        
+        $I->wantTo('login to website'); 
+        $I->lookForwardTo('access website features for logged-in users'); 
         $I->amOnPage(self::$URL);
         $I->click(self::$loginform);
         $I->fillField(self::$userloginField, $userlogin);
@@ -31,7 +35,7 @@ class Login
     public function logout() 
     {
         $I = $this->user;
-        $I->click("Выйти");
+        $I->click(self::$logout);
     }
 
 
