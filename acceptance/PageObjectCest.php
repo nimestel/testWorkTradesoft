@@ -77,7 +77,7 @@ class UserCest
     //вход с паролем с буквами в разном регистре
     function signInDifferentCasePassword(AcceptanceTester $I, \Page\Login $loginPage)
     {
-        $loginPage->login(' justlogin123', 'itSpass123');
+        $loginPage->login('justlogin123', 'itSpass123');
         $I->dontSee('Здравствуйте, ', $loginPage::$helloform);
         $I->see($loginPage::$loginError);
     } 
@@ -123,7 +123,7 @@ class UserCest
     //вход с пробелами в начале или конце пароля
     function signInSpaceAtBeginAndEndPassword(AcceptanceTester $I, \Page\Login $loginPage)
     {
-        $loginPage->fillFieldsLoginPassword('testme', '  123 ');
+        $loginPage->fillFieldsLoginPassword('testme', '  123');
         $I->click($loginPage::$submitButton);
         $I->dontSee('Здравствуйте, ', $loginPage::$helloform);
         $I->see($loginPage::$loginError);

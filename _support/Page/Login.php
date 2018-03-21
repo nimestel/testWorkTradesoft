@@ -4,7 +4,6 @@ namespace Page;
 class Login
 {
     public static $URL = 'https://xn----8sbbddoe5esabkbhs.xn--p1ai/';
-   // Эти свойства определяют отображение пользовательского интерфейса для страницы регистрации
     public static $userloginField = 'userlogin';
     public static $userpasswordField = 'userpassword';
     public static $loginform = "//a[@class='btn'][contains(@data-target, '#myModal')]";
