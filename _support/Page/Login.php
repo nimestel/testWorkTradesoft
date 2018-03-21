@@ -10,6 +10,7 @@ class Login
     public static $loginform = "#myModal a";
     public static $submitButton = "//input[@type='submit'][contains(@value, 'Войти')]";
     public static $helloform = ".auth-user__hello";
+    public static $closeback = "//button[@type='button'][contains(@class, 'close ico-auth-close')]"; //gotohell
 
     protected $user;
 
