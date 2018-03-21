@@ -32,6 +32,16 @@ class Login
         $I->click(self::$submitButton);        
     }
 
+    public function fillFieldsLoginPassword($userlogin, $userpassword) 
+    {
+        $I = $this->user;        
+        $I->wantTo('fill fields login and password'); 
+        $I->amOnPage(self::$URL);
+        $I->click(self::$loginform);
+        $I->fillField(self::$userloginField, $userlogin);
+        $I->fillField(self::$userpasswordField,$userpassword);
+    } 
+
     public function logout() 
     {
         $I = $this->user;

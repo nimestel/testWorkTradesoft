@@ -1,7 +1,9 @@
 <?php
 
+
 class UserCest
 {
+
     function signInFullCorrect(AcceptanceTester $I, \Page\Login $loginPage)
     {
         $loginPage->login('testme', '123');
@@ -68,6 +70,26 @@ class UserCest
         $I->dontSee('Здравствуйте, ', $loginPage::$helloform);
         $I->see($loginPage::$loginError);
     }
-    
+
+    function signInTimeout(AcceptanceTester $I, \Page\Login $loginPage)
+    {
+        for ($j = 1; $j <= 100; $j++) {
+        $loginPage->login('testme', '123');
+        $I->see('Здравствуйте, ', $loginPage::$helloform);
+        $loginPage->logout();
+        echo ($j);
+        }
+    }   
+		    
+    function signInHiddenPassword(AcceptanceTester $I, \Page\Login $loginPage)
+    {
+        $loginPage->fillFieldsLoginPassword('testme', '123');
+        $pass = $I->grabTextFrom("//input[@id = 'userpassword']");
+        echo($pass);
+        $I->dontSee('123');
+    }   
+
+
+
 }
 
