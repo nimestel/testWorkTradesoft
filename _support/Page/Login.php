@@ -8,7 +8,7 @@ class Login
     public static $userloginField = 'userlogin';
     public static $userpasswordField = 'userpassword';
     public static $loginform = "#myModal a";
-    public static $submitButton = "['class' => 'btn--auth-submit']";
+    public static $submitButton = "//input[@type='submit'][contains(@value, 'Войти')]";
     public static $helloform = ".auth-user__hello";
 
     protected $user;
