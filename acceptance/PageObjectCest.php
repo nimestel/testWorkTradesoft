@@ -2,6 +2,13 @@
 
 class UserCest
 {
+ 
+    //убедиться, что тесты сорвали лимит попыток входа
+    function signInAfterMultipleFailedLoginAttempts(AcceptanceTester $I, \Page\Login $loginPage)
+    {
+        $I->amOnPage($loginPage::$URL);
+        $I->canSee($loginPage::$manyAttemptsLoginError); 
+    }
 
     //вход с действительными логином и паролем
     function signInWithFullCorrectLoginAndPassword(AcceptanceTester $I, \Page\Login $loginPage)
@@ -171,25 +178,26 @@ class UserCest
         $I->dontSee('Здравствуйте');
         $I->see($loginPage::$loginError); 
     }  
-    
+  
     //тест с множественными неудачными попытками входа отключен, чтобы остальные тесты не падали
     /*
     function signInWithMultipleFailedLoginAttempts(AcceptanceTester $I, \Page\Login $loginPage)
     {
-        $I->wantTo('сломать все к чертям');
         $I->amOnPage($loginPage::$URL);
         $I->click($loginPage::$loginform);
 
+        //10 неудачных попыток
         for ($j = 1; $j <= 10; $j++)
         {
-     //       $loginPage->tryLogIn('123', '123'); 
+     //       $loginPage->tryToLogIn('123', '123'); 
         }
         
+        //пытаться, пока все не упадет
         $j=0;
         while($I->see("Войти")==null):
         {
             $j++;
-            $loginPage->tryLogIn('123', '123');
+    //        $loginPage->tryToLogIn('123', '123');
         }
         endwhile;
 

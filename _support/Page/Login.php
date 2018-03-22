@@ -43,10 +43,10 @@ class Login
         $I->fillField(self::$userpasswordField,$userpassword);
     } 
 
-    public function tryLogIn($userlogin, $userpassword) 
+    public function tryToLogIn($userlogin, $userpassword) 
     {
         $I = $this->user; 
-        $I->wantTo('тык');
+        $I->wantTo('click click');
         $I->fillField(self::$userloginField, $userlogin);
         $I->fillField(self::$userpasswordField,$userpassword);
         $I->click(self::$submitButton);
