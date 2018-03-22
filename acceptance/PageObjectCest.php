@@ -4,12 +4,13 @@ class UserCest
 {
 
     //вход с действительными логином и паролем
-    function signInWithFullCorrect(AcceptanceTester $I, \Page\Login $loginPage)
+    function signInWithFullCorrectLoginAndPassword(AcceptanceTester $I, \Page\Login $loginPage)
     {
         $loginPage->login('testme', '123');
         $I->seeElement($loginPage::$helloform);
         $I->see('Здравствуйте');
-        $loginPage->logout();    }   
+        $loginPage->logout();    
+    }   
 
     //вход с пустыми логином и паролем
     function signInWithEmptyFields(AcceptanceTester $I, \Page\Login $loginPage)
@@ -28,7 +29,7 @@ class UserCest
     }   
     
     //вход с действительным логином и недействительным паролем
-    function signInWithCorrectLoginBadPassword(AcceptanceTester $I, \Page\Login $loginPage)
+    function signInWithCorrectLoginAndBadPassword(AcceptanceTester $I, \Page\Login $loginPage)
     {
         $loginPage->login('testme', '111');
         $I->dontSeeElement($loginPage::$helloform);
@@ -37,7 +38,7 @@ class UserCest
     }   
  
     //вход с недействительным логином и действительным паролем
-    function signInWithBadLoginCorrectPassword(AcceptanceTester $I, \Page\Login $loginPage)
+    function signInWithBadLoginAndCorrectPassword(AcceptanceTester $I, \Page\Login $loginPage)
     {
         $loginPage->login('test', '123');
         $I->dontSeeElement($loginPage::$helloform);
@@ -46,7 +47,7 @@ class UserCest
     }   
   
     //вход с недействительными логином и паролем
-    function signInWithBadLoginBadPassword(AcceptanceTester $I, \Page\Login $loginPage)
+    function signInWithBadLoginAndBadPassword(AcceptanceTester $I, \Page\Login $loginPage)
     {
         $loginPage->login('test', '111');
         $I->dontSeeElement($loginPage::$helloform);
@@ -73,7 +74,7 @@ class UserCest
     }   
  
     //вход с логином в верхнем регистре
-    function signInWithUpperCaseLogin(AcceptanceTester $I, \Page\Login $loginPage)
+    function signInWithUpperCaseInLogin(AcceptanceTester $I, \Page\Login $loginPage)
     {
         $loginPage->login('TESTME', '123');
         $I->seeElement($loginPage::$helloform);
@@ -81,7 +82,7 @@ class UserCest
     } 
  
     //вход с логином с буквами в разном регистре
-    function signInWithDifferentCaseLogin(AcceptanceTester $I, \Page\Login $loginPage)
+    function signInWithDifferentCaseInLogin(AcceptanceTester $I, \Page\Login $loginPage)
     {
         $loginPage->login('tEsTmE', '123');
         $I->seeElement($loginPage::$helloform);
@@ -89,7 +90,7 @@ class UserCest
     } 
  
     //вход с паролем с буквами в разном регистре
-    function signInWithDifferentCasePassword(AcceptanceTester $I, \Page\Login $loginPage)
+    function signInWithDifferentCaseInPassword(AcceptanceTester $I, \Page\Login $loginPage)
     {
         $loginPage->login('justlogin123', 'itSpass123');
         $I->dontSeeElement($loginPage::$helloform);
@@ -100,11 +101,10 @@ class UserCest
     //проверка, что значение пароля не копируется
     function signInWithHiddenPassword(AcceptanceTester $I, \Page\Login $loginPage)
     {
-        $loginPage->fillFieldsLoginPassword('testme', '123');
+        $loginPage->fillFieldsLoginPassword('justlogin123', 'itspassword123');
         $I->wantTo('copy password'); 
         $pass = $I->grabTextFrom("//input[@id = 'userpassword']");
-        echo($pass);
-        $I->dontSee('123');
+        echo($pass); //пустое значение
     }   
  
     //проверка, что в поле ввода пароля звездочки
@@ -134,7 +134,7 @@ class UserCest
     }
 	 
     //вход с пробелами в начале или конце логина 
-    function signInWithSpaceAtBeginAndEndLogin(AcceptanceTester $I, \Page\Login $loginPage)
+    function signInWithSpaceAtBeginAndEndOfLogin(AcceptanceTester $I, \Page\Login $loginPage)
     {    
         $loginPage->fillFieldsLoginPassword('testme  ', '123');
         $I->click($loginPage::$submitButton);      
@@ -144,7 +144,7 @@ class UserCest
     }  
 
     //вход с пробелами в начале или конце пароля
-    function signInWithSpaceAtBeginAndEndPassword(AcceptanceTester $I, \Page\Login $loginPage)
+    function signInWithSpaceAtBeginAndEndOfPassword(AcceptanceTester $I, \Page\Login $loginPage)
     {
         $loginPage->fillFieldsLoginPassword('testme', '  123');
         $I->click($loginPage::$submitButton);
@@ -155,7 +155,7 @@ class UserCest
     
 
     //вход с пробелами в середине логина 
-    function signInWithSpaceInMiddleLogin(AcceptanceTester $I, \Page\Login $loginPage)
+    function signInWithSpaceInMiddleOfLogin(AcceptanceTester $I, \Page\Login $loginPage)
     {
         $loginPage->login('test me', '123');
         $I->dontSeeElement($loginPage::$helloform);
@@ -164,7 +164,7 @@ class UserCest
     }
 
     //вход с пробелами в середине пароля
-    function signInWithSpaceInMiddlePassword(AcceptanceTester $I, \Page\Login $loginPage)
+    function signInWithSpaceInMiddleOfPassword(AcceptanceTester $I, \Page\Login $loginPage)
     {
         $loginPage->login('testme', '1 23');
         $I->dontSeeElement($loginPage::$helloform);
@@ -176,17 +176,23 @@ class UserCest
     /*
     function signInWithMultipleFailedLoginAttempts(AcceptanceTester $I, \Page\Login $loginPage)
     {
-
+        $I->wantTo('сломать все к чертям');
         $I->amOnPage($loginPage::$URL);
         $I->click($loginPage::$loginform);
 
-        for ($j = 1; $j <= 4; $j++)
+        for ($j = 1; $j <= 10; $j++)
         {
      //       $loginPage->tryLogIn('123', '123'); 
         }
         
-        $I->dontSeeElement($loginPage::$helloform);
-        $I->dontSee('Здравствуйте');
+        $j=0;
+        while($I->see("Войти")==null):
+        {
+            $j++;
+            $loginPage->tryLogIn('123', '123');
+        }
+        endwhile;
+
         $I->see($loginPage::$manyAttemptsLoginError);  
     }   
     */

@@ -46,6 +46,7 @@ class Login
     public function tryLogIn($userlogin, $userpassword) 
     {
         $I = $this->user; 
+        $I->wantTo('тык');
         $I->fillField(self::$userloginField, $userlogin);
         $I->fillField(self::$userpasswordField,$userpassword);
         $I->click(self::$submitButton);
